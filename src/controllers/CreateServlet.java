@@ -41,6 +41,7 @@ public class CreateServlet extends HttpServlet {
             //データベースへの保存
             em.persist(m);
             em.getTransaction().commit();
+            request.getSession().setAttribute("flash", "登録が完了しました。");
             em.close();
             //indexページへのリダイレクト（遷移）
             response.sendRedirect(request.getContextPath() + "/index");
